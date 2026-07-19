@@ -19,7 +19,7 @@ python3 -m http.server 8080
 
 ## Editing
 - **Text/content:** edit `index.html`. Sections marked `<!-- EDIT ME -->` are placeholder copy.
-- **Contact email:** search `index.html` for `amorgun@morgunsolutions.com` and replace with a company address if you get one.
+- **Contact email:** it's set in `index.html` (currently `amorgun@morgunsolutions.com`) — search for it there to change it.
 - **Colors/spacing:** edit the CSS variables at the top of `styles.css`.
 
 ## Deploy — GitHub Pages (free, current setup)
