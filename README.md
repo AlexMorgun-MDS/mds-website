@@ -7,7 +7,7 @@ A small, fast, static "face of the company" site. Plain HTML + CSS, no build ste
 index.html          # the whole page (all sections)
 styles.css          # styling + light/dark theming
 assets/
-  logo-mark.svg     # refreshed cube-M mark (scalable, theme-aware)
+  logo-mark.svg     # network-nodes "M" mark (scalable, theme-aware)
   favicon.svg       # browser-tab icon
 ```
 
