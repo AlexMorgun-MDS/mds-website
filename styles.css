@@ -89,8 +89,8 @@ a { color: inherit; }
 .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); }
 .brand .mark { width: 32px; height: 32px; display: block; flex: none; }
 .brand .wordmark {
-  font-family: var(--font-head); font-weight: 700; font-size: 22px;
-  letter-spacing: 0.14em; line-height: 1;
+  font-family: var(--font-head); font-weight: 700; font-size: 21px;
+  letter-spacing: 0.12em; line-height: 1;
 }
 
 .nav { display: flex; align-items: center; gap: 28px; }
@@ -166,7 +166,7 @@ section { padding: 88px 0; border-bottom: 1px solid var(--line); }
 .site-footer .container { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 .foot-brand { display: inline-flex; align-items: center; gap: 10px; }
 .foot-brand .mark { width: 26px; height: 26px; flex: none; }
-.foot-brand .name { font-family: var(--font-head); font-weight: 600; letter-spacing: .1em; font-size: 15px; }
+.foot-brand .name { font-family: var(--font-head); font-weight: 700; letter-spacing: .12em; font-size: 15px; }
 .foot-meta { color: var(--muted); font-size: 14px; }
 
 /* ---------- Responsive ---------- */
