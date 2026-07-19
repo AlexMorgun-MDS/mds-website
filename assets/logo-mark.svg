@@ -1,0 +1,13 @@
+<svg viewBox="0 0 130 130" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" role="img" aria-label="MDS cube mark">
+  <!-- isometric wireframe cube (thin) -->
+  <g stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <!-- front face -->
+    <path d="M8 48 H78 V118 H8 Z"/>
+    <!-- back face -->
+    <path d="M36 20 H106 V90 H36 Z"/>
+    <!-- connecting edges -->
+    <path d="M8 48 L36 20 M78 48 L106 20 M78 118 L106 90 M8 118 L36 90"/>
+  </g>
+  <!-- bold M built into the front face -->
+  <path d="M18 108 V58 L43 86 L68 58 V108" stroke-width="12" stroke-linejoin="round" stroke-linecap="butt"/>
+</svg>
