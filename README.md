@@ -7,9 +7,13 @@ A small, fast, static "face of the company" site. Plain HTML + CSS, no build ste
 index.html          # the whole page (all sections)
 styles.css          # styling + light/dark theming
 assets/
-  logo-mark.svg     # network-nodes "M" mark (scalable, theme-aware)
-  favicon.svg       # browser-tab icon
+  logo-mark.svg         # network-nodes "M" mark, adapts to theme (used in-page)
+  logo-mark-black.svg   # standalone mark, solid black — for light backgrounds
+  logo-mark-white.svg   # standalone mark, solid white — for dark backgrounds
+  favicon.svg           # browser-tab icon
 ```
+
+**Which logo file to use:** `logo-mark.svg` inherits the surrounding text color, so it only works inside the styled site. For anything external (email signature, slides, social profiles, print), use the **black** or **white** variant — they have baked-in colors and a transparent background, and being SVG they scale to any size without quality loss.
 
 ## Preview locally
 ```bash
