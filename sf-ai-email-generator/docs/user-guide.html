@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Guide — AI Email Reply Generator | MDS</title>
+  <meta name="description" content="How to generate, edit and send AI-drafted email replies in Salesforce." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="canonical" href="https://morgunsolutions.com/sf-ai-email-generator/docs/user-guide.html" />
+
+  <meta property="og:title" content="User Guide — AI Email Reply Generator" />
+  <meta property="og:description" content="How to generate, edit and send AI-drafted email replies in Salesforce." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://morgunsolutions.com/sf-ai-email-generator/docs/user-guide.html" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="docs.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/" aria-label="MDS — Morgun Database Solutions, home">
+        <svg class="mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true"><path d="M14 47 V17 L32 35 L50 17 V47" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><g fill="currentColor" stroke="none"><circle cx="14" cy="17" r="5"/><circle cx="50" cy="17" r="5"/><circle cx="32" cy="35" r="5"/><circle cx="14" cy="47" r="5"/><circle cx="50" cy="47" r="5"/></g></svg>
+        <span class="wordmark">MDS</span>
+        <span class="sep">/</span>
+        <span class="product">AI Email Reply Generator</span>
+      </a>
+      <nav class="nav">
+          <a class="navlink" href="setup.html">Setup</a>
+          <a class="navlink" href="user-guide.html" aria-current="page">User Guide</a>
+          <a class="navlink" href="faq.html">FAQ</a>
+          <a class="navlink" href="troubleshooting.html">Troubleshooting</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <nav aria-label="Documentation">
+        <p class="eyebrow">Documentation</p>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="setup.html">Setup Guide</a></li>
+          <li><a href="user-guide.html" aria-current="page">User Guide</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="troubleshooting.html">Troubleshooting</a></li>
+        </ul>
+        <p class="eyebrow">Policies</p>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="security-policy.html">Security Policy</a></li>
+        </ul>
+        </nav>
+      </aside>
+      <main class="content">
+<h1 id="user-guide">User Guide</h1>
+<p>For anyone replying to customer email in Salesforce. No setup needed
+on your side — your administrator does that once (see the <a
+href="setup.html">Setup Guide</a>).</p>
+<hr />
+<h2 id="what-the-app-does">What the app does</h2>
+<p>On a record with email activity, the <strong>AI Email Reply
+Generator</strong> card reads the email thread, drafts a reply in the
+tone you pick, and lets you edit it before it goes out. You are always
+the one who sends. Nothing is sent automatically.</p>
+<hr />
+<h2 id="generating-a-reply">Generating a reply</h2>
+<h3 id="1-open-the-record">1. Open the record</h3>
+<p>Go to the Case (or other record) you want to reply to. Find the
+<strong>AI Email Reply Generator</strong> card on the page.</p>
+<p>The card loads the most recent inbound email for that record on its
+own and shows you a preview: subject, who it is from, who it was
+addressed to, and how many messages are in the thread. Check that this
+is the email you meant to reply to.</p>
+<p>If you see <em>"No inbound emails found for this record"</em>, there
+is no inbound email on the record yet. Click <strong>Enter Email ID
+manually</strong>, paste an Email Message Id, and click <strong>Load
+Email</strong>.</p>
+<h3 id="2-pick-a-tone">2. Pick a tone</h3>
+<p>Click one of the tone buttons:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Tone</th>
+<th>Good for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Professional</strong></td>
+<td>The default. Neutral business register, safe for most replies.</td>
+</tr>
+<tr>
+<td><strong>Friendly</strong></td>
+<td>Warm and conversational — existing relationships, good news.</td>
+</tr>
+<tr>
+<td><strong>Empathetic</strong></td>
+<td>Complaints, outages, anything where the customer is frustrated.</td>
+</tr>
+<tr>
+<td><strong>Formal</strong></td>
+<td>Contractual, legal or escalated correspondence.</td>
+</tr>
+<tr>
+<td><strong>Concise</strong></td>
+<td>Short, direct answers. Confirmations and quick facts.</td>
+</tr>
+<tr>
+<td><strong>Custom</strong></td>
+<td>Describe the tone yourself in the box that appears, e.g. "apologetic
+but firm on policy".</td>
+</tr>
+</tbody>
+</table></div>
+<p>If you skip this, the default tone your administrator configured is
+used.</p>
+<h3 id="3-pick-a-prompt-template-if-offered">3. Pick a prompt template
+(if offered)</h3>
+<p>A <strong>Prompt Template</strong> picker appears when your
+administrator has published more than one. Templates shape the whole
+reply, not just its tone — for example <strong>Support Reply</strong>
+aims at resolving an issue, while <strong>Sales Reply</strong> aims at
+moving a deal forward. One is marked <strong>(Default)</strong>.</p>
+<h3 id="4-acknowledge-the-data-disclosure">4. Acknowledge the data
+disclosure</h3>
+<p>The first time, a <strong>Data Disclosure</strong> banner names
+exactly what will be sent to the AI provider — the message body, plus
+any of subject, sender name, recipient role and timestamps your
+administrator has chosen to include. Click <strong>I Understand,
+Proceed</strong>.</p>
+<h3 id="5-click-generate-reply">5. Click Generate Reply</h3>
+<p>The draft appears in an editor below, usually within a few seconds.
+Longer threads take longer.</p>
+<hr />
+<h2 id="editing-and-sending">Editing and sending</h2>
+<h3 id="edit-the-draft">Edit the draft</h3>
+<p>The draft is fully editable rich text. Treat it as a first draft, not
+a final one — read it before it goes out. Check in particular:</p>
+<ul>
+<li><strong>Facts and figures.</strong> Dates, amounts, order numbers
+and policy details can be wrong or invented. The AI only sees the email
+thread, not your systems.</li>
+<li><strong>Promises.</strong> Delete anything committing to a date,
+refund or outcome you have not confirmed.</li>
+<li><strong>Who it is addressed to.</strong> The draft should be written
+to the customer.</li>
+<li><strong>Names and greetings.</strong></li>
+</ul>
+<h3 id="send">Send</h3>
+<p>Click <strong>Send Reply</strong>. The reply is saved and sent as a
+normal Salesforce email, as a reply on the existing thread, and you get
+a <em>"Reply sent successfully!"</em> confirmation. The card then
+clears, ready for the next one.</p>
+<p>The AI provider is used <strong>only</strong> to write the text.
+Sending is done entirely by Salesforce — the provider is not involved at
+send time and never sees the sent message.</p>
+<h3 id="discard">Discard</h3>
+<p><strong>Discard</strong> clears the editor and your tone choice so
+you can start over. It does not unsend anything, and it does not delete
+a draft record already saved in Salesforce.</p>
+<h3 id="regenerate">Regenerate</h3>
+<p>Not happy with a draft? Change the tone or template and click
+<strong>Generate Reply</strong> again. The editor is replaced with the
+new draft, so copy anything you want to keep first.</p>
+<hr />
+<h2 id="draft-history">Draft history</h2>
+<p>Every generated draft is stored in Salesforce as an <strong>AI Email
+Reply Draft</strong> record, with the tone used, the provider and model
+that produced it, the original text, your edited text, and a status of
+<strong>Draft</strong>, <strong>Saved</strong>, <strong>Sent</strong> or
+<strong>Discarded</strong>.</p>
+<p>That means your edits are recorded alongside the original AI output.
+If your organisation reviews email quality, this is where to look. Ask
+your administrator if you need access to these records.</p>
+<hr />
+<h2 id="good-practice">Good practice</h2>
+<ul>
+<li><strong>Read every draft before sending.</strong> The AI has no
+access to your order, billing or account systems and will sometimes
+write a confident sentence that is simply wrong.</li>
+<li><strong>Don't use it for the hardest messages.</strong> Legal
+notices, terminations, security incidents and anything requiring precise
+liability wording are worth writing yourself.</li>
+<li><strong>Reply on the record, not from your mail client</strong>, so
+the thread and the draft history stay together.</li>
+<li><strong>Tell your admin when drafts are consistently off.</strong>
+Reply quality is mostly a function of the prompt template, and templates
+are editable.</li>
+</ul>
+<hr />
+<h2 id="when-something-goes-wrong">When something goes wrong</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>What you see</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Access Not Available</strong></td>
+<td>You have not been assigned the <strong>AI Email Reply User</strong>
+permission set. Ask your administrator.</td>
+</tr>
+<tr>
+<td><em>AI provider is not configured</em></td>
+<td>Setup is not finished. This is an administrator task.</td>
+</tr>
+<tr>
+<td><em>No inbound emails found for this record</em></td>
+<td>No inbound email on this record — use <strong>Enter Email ID
+manually</strong>.</td>
+</tr>
+<tr>
+<td><em>Unable to generate reply</em></td>
+<td>Usually a provider or connection problem. Retry once, then tell your
+administrator.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Full list, with the admin-side fix for each: <a
+href="troubleshooting.html">Troubleshooting</a>.</p>
+<hr />
+<p>Questions about cost, providers or what data leaves your org: <a
+href="faq.html">FAQ</a>.</p>
+      </main>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>AI Email Reply Generator — a Salesforce AppExchange managed package by
+        <a href="/">Morgun Database Solutions</a>.</span>
+      <span>Support: <a href="mailto:omorgun@morgunsolutions.com">omorgun@morgunsolutions.com</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>

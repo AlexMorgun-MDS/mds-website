@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — AI Email Reply Generator | MDS</title>
+  <meta name="description" content="Frequently asked questions about AI Email Reply Generator: providers, cost, data handling, supported Salesforce editions." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="canonical" href="https://morgunsolutions.com/sf-ai-email-generator/docs/faq.html" />
+
+  <meta property="og:title" content="FAQ — AI Email Reply Generator" />
+  <meta property="og:description" content="Frequently asked questions about AI Email Reply Generator: providers, cost, data handling, supported Salesforce editions." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://morgunsolutions.com/sf-ai-email-generator/docs/faq.html" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="docs.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/" aria-label="MDS — Morgun Database Solutions, home">
+        <svg class="mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true"><path d="M14 47 V17 L32 35 L50 17 V47" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><g fill="currentColor" stroke="none"><circle cx="14" cy="17" r="5"/><circle cx="50" cy="17" r="5"/><circle cx="32" cy="35" r="5"/><circle cx="14" cy="47" r="5"/><circle cx="50" cy="47" r="5"/></g></svg>
+        <span class="wordmark">MDS</span>
+        <span class="sep">/</span>
+        <span class="product">AI Email Reply Generator</span>
+      </a>
+      <nav class="nav">
+          <a class="navlink" href="setup.html">Setup</a>
+          <a class="navlink" href="user-guide.html">User Guide</a>
+          <a class="navlink" href="faq.html" aria-current="page">FAQ</a>
+          <a class="navlink" href="troubleshooting.html">Troubleshooting</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <nav aria-label="Documentation">
+        <p class="eyebrow">Documentation</p>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="setup.html">Setup Guide</a></li>
+          <li><a href="user-guide.html">User Guide</a></li>
+          <li><a href="faq.html" aria-current="page">FAQ</a></li>
+          <li><a href="troubleshooting.html">Troubleshooting</a></li>
+        </ul>
+        <p class="eyebrow">Policies</p>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="security-policy.html">Security Policy</a></li>
+        </ul>
+        </nav>
+      </aside>
+      <main class="content">
+<h1 id="frequently-asked-questions">Frequently Asked Questions</h1>
+<hr />
+<h2 id="the-basics">The basics</h2>
+<h3 id="what-does-the-app-do">What does the app do?</h3>
+<p>It reads the email thread on a Salesforce record, generates a reply
+draft in a tone you choose, and lets you edit it before sending. You
+always review and send; nothing goes out automatically.</p>
+<h3 id="what-does-it-cost">What does it cost?</h3>
+<p>The app is <strong>free</strong> — unlimited replies, all tones,
+unlimited prompt templates, and support, at $0.</p>
+<p>You pay your AI provider directly for the API usage, under your own
+account with them. There is no billing relationship with MDS LLC and no
+usage cap imposed by the app.</p>
+<h3 id="which-salesforce-editions-are-supported">Which Salesforce
+editions are supported?</h3>
+<p>Enterprise, Unlimited and Developer, with Lightning Experience
+enabled.</p>
+<h3 id="does-it-work-in-salesforce-classic">Does it work in Salesforce
+Classic?</h3>
+<p>No. The app is built from Lightning Web Components and requires
+Lightning Experience.</p>
+<h3 id="does-it-work-on-mobile">Does it work on mobile?</h3>
+<p>Yes — it is Lightning mobile compatible, on record pages in the
+Salesforce mobile app.</p>
+<h3 id="which-objects-does-it-work-on">Which objects does it work
+on?</h3>
+<p>Any Lightning record page that has email activity. Cases are the
+primary use case. It can also be placed on a Home or App page, where you
+supply an Email Message Id manually.</p>
+<hr />
+<h2 id="ai-providers-and-keys">AI providers and keys</h2>
+<h3 id="which-ai-providers-are-supported">Which AI providers are
+supported?</h3>
+<p>OpenAI, Anthropic, Google and xAI. You bring your own account and API
+key for one of them. Azure OpenAI and self-hosted OpenAI-compatible
+endpoints can also work, since the callout goes through a standard
+Salesforce Named Credential.</p>
+<h3 id="which-models-does-it-use-by-default">Which models does it use by
+default?</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Default model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenAI</td>
+<td><code>gpt-4o</code></td>
+</tr>
+<tr>
+<td>Anthropic</td>
+<td><code>claude-haiku-4-5</code></td>
+</tr>
+<tr>
+<td>Google</td>
+<td><code>gemini-2.5-flash</code></td>
+</tr>
+<tr>
+<td>xAI</td>
+<td><code>grok-3-fast</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Your administrator can set any model identifier your provider account
+can call.</p>
+<h3 id="can-i-use-more-than-one-provider-at-once">Can I use more than
+one provider at once?</h3>
+<p>No. One <strong>AI Reply Config</strong> record is active at a time,
+so the whole org uses one provider and model. You can switch at any time
+by activating a different config record.</p>
+<h3 id="why-do-i-need-my-own-api-key-why-not-buy-ai-from-you">Why do I
+need my own API key? Why not buy AI from you?</h3>
+<p>The BYOK model means your email content goes from your org straight
+to a provider you already have a contract with, under your own terms,
+pricing and data-retention settings. MDS LLC operates no infrastructure
+in the path, so there is no vendor in the middle to trust, audit or
+breach.</p>
+<h3 id="where-is-my-api-key-stored">Where is my API key stored?</h3>
+<p>In a Salesforce <strong>External Credential</strong>, encrypted and
+managed by Salesforce. It is never stored in the package's code or
+metadata, never logged, and the app cannot read it back — Salesforce
+injects it into the outbound request. See the <a href="setup.html">Setup
+Guide</a>.</p>
+<h3 id="does-salesforce-einstein-work-as-a-provider">Does Salesforce
+Einstein work as a provider?</h3>
+<p>Not currently.</p>
+<hr />
+<h2 id="data-and-privacy">Data and privacy</h2>
+<h3 id="what-data-is-sent-to-the-ai-provider">What data is sent to the
+AI provider?</h3>
+<p>By default, <strong>only the message bodies of the email thread and
+your tone selection.</strong></p>
+<p>Four options, all <strong>off</strong> by default, let an
+administrator add more context:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Adds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Include Sender in Prompt</td>
+<td>Sender name and address</td>
+</tr>
+<tr>
+<td>Include Recipient in Prompt</td>
+<td>Recipient address</td>
+</tr>
+<tr>
+<td>Include Subject in Prompt</td>
+<td>The subject line</td>
+</tr>
+<tr>
+<td>Include Timestamp in Prompt</td>
+<td>Message dates and times</td>
+</tr>
+</tbody>
+</table></div>
+<p>Before generating, the component shows a disclosure banner naming
+exactly what will be sent, based on how your org is configured.</p>
+<h3 id="does-mds-llc-see-my-data">Does MDS LLC see my data?</h3>
+<p>No. The app runs entirely inside your Salesforce org, and the AI
+callout goes from your org directly to your provider. MDS LLC operates
+no servers, APIs or databases for this product and is
+<strong>not</strong> a data processor or sub-processor. See the <a
+href="privacy-policy.html">Privacy Policy</a>.</p>
+<h3 id="will-my-email-content-be-used-to-train-ai-models">Will my email
+content be used to train AI models?</h3>
+<p>That depends on your agreement with your AI provider, not on this
+app. Most providers exclude API traffic from training by default on paid
+business tiers — check your provider's data-usage terms and, if needed,
+their zero-retention options.</p>
+<h3
+id="is-email-content-sent-to-the-ai-provider-when-a-reply-is-sent">Is
+email content sent to the AI provider when a reply is sent?</h3>
+<p>No. The provider is used only to write the draft text. Sending is
+done entirely by Salesforce's native email, and the provider is not
+involved at send time.</p>
+<h3 id="where-are-drafts-stored">Where are drafts stored?</h3>
+<p>In your org, as <strong>AI Email Reply Draft</strong> records. Each
+holds the tone, the provider and model used, the original AI text, your
+edited text, and a status of Draft, Saved, Sent or Discarded. They are
+ordinary Salesforce records, subject to your sharing rules, backup and
+retention.</p>
+<h3 id="can-i-delete-draft-history">Can I delete draft history?</h3>
+<p>Yes — they are standard custom object records. Delete them manually,
+or with a scheduled job or data retention tool, like any other
+object.</p>
+<h3 id="is-the-app-gdpr-compatible">Is the app GDPR-compatible?</h3>
+<p>No personal data is persisted outside your Salesforce org by the app,
+and MDS LLC receives none. Your obligations for the content you send to
+your AI provider are governed by your agreement with that provider. See
+the <a href="privacy-policy.html">Privacy Policy</a>.</p>
+<h3 id="has-it-passed-the-salesforce-security-review">Has it passed the
+Salesforce Security Review?</h3>
+<p>The package is built to Salesforce ISV security requirements — CRUD
+and FLS enforced, no dynamic SOQL, callouts only through Named
+Credentials, no external scripts. The <a
+href="security-policy.html">Security Policy</a> covers development
+practices and vulnerability response. For review documentation, contact
+<a
+href="mailto:omorgun@morgunsolutions.com"><span>omorgun@morgunsolutions.com</span></a>.</p>
+<hr />
+<h2 id="using-it">Using it</h2>
+<h3 id="which-tones-are-available">Which tones are available?</h3>
+<p>Professional, Friendly, Empathetic, Formal, Concise, and Custom —
+where the user describes the tone in their own words. See the <a
+href="user-guide.html">User Guide</a>.</p>
+<h3 id="can-i-customise-how-replies-are-written">Can I customise how
+replies are written?</h3>
+<p>Yes, through prompt templates. Three ship with the package (General,
+Support, Sales) and administrators can add more. See <a
+href="setup.html#prompt-templates">Prompt templates</a>.</p>
+<h3 id="can-it-write-in-languages-other-than-english">Can it write in
+languages other than English?</h3>
+<p>The interface is English. Replies follow the email thread and your
+prompt template, so the model will usually reply in the thread's
+language, and you can make that explicit by adding a language
+instruction to a template. There is no translated UI yet.</p>
+<h3 id="will-it-invent-facts">Will it invent facts?</h3>
+<p>It can. The model sees only the email thread — not your orders,
+billing or account data — so dates, amounts and policy details may be
+wrong or fabricated. Always read a draft before sending. The <a
+href="user-guide.html">User Guide</a> lists what to check.</p>
+<h3 id="can-it-send-replies-automatically">Can it send replies
+automatically?</h3>
+<p>No, by design. A person picks the tone, reviews the draft and clicks
+send.</p>
+<h3 id="is-there-a-limit-on-how-many-replies-we-can-generate">Is there a
+limit on how many replies we can generate?</h3>
+<p>Not from the app. Your limits are your AI provider's rate limits and
+credit, plus Salesforce's own callout limits.</p>
+<hr />
+<h2 id="installing-and-removing">Installing and removing</h2>
+<h3 id="how-long-does-setup-take">How long does setup take?</h3>
+<p>About 10 minutes for an administrator who has an API key ready. See
+the <a href="setup.html">Setup Guide</a>.</p>
+<h3 id="does-it-change-any-of-our-existing-data-or-objects">Does it
+change any of our existing data or objects?</h3>
+<p>No. The package adds its own components, one custom object for
+drafts, two custom metadata types, permission sets, and Named and
+External Credentials. It does not modify standard objects or existing
+data.</p>
+<h3 id="what-happens-if-we-uninstall">What happens if we uninstall?</h3>
+<p>Uninstall from <strong>Setup → Installed Packages</strong>.
+Salesforce removes the package's components. Follow Salesforce's
+standard prompts about retaining or discarding the package's data if you
+want to keep draft records. Revoke the API key in your provider's
+console afterwards.</p>
+<h3 id="how-do-we-get-support">How do we get support?</h3>
+<p>Email <a
+href="mailto:omorgun@morgunsolutions.com"><span>omorgun@morgunsolutions.com</span></a>,
+target response two business days. <a
+href="troubleshooting.html">Troubleshooting</a> lists the details worth
+including.</p>
+      </main>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>AI Email Reply Generator — a Salesforce AppExchange managed package by
+        <a href="/">Morgun Database Solutions</a>.</span>
+      <span>Support: <a href="mailto:omorgun@morgunsolutions.com">omorgun@morgunsolutions.com</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>

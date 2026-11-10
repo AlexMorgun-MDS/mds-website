@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setup Guide — AI Email Reply Generator | MDS</title>
+  <meta name="description" content="One-time administrator setup for AI Email Reply Generator: install, API key, permission sets, and adding the component to your Lightning pages." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="canonical" href="https://morgunsolutions.com/sf-ai-email-generator/docs/setup.html" />
+
+  <meta property="og:title" content="Setup Guide — AI Email Reply Generator" />
+  <meta property="og:description" content="One-time administrator setup for AI Email Reply Generator: install, API key, permission sets, and adding the component to your Lightning pages." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://morgunsolutions.com/sf-ai-email-generator/docs/setup.html" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="docs.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/" aria-label="MDS — Morgun Database Solutions, home">
+        <svg class="mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true"><path d="M14 47 V17 L32 35 L50 17 V47" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><g fill="currentColor" stroke="none"><circle cx="14" cy="17" r="5"/><circle cx="50" cy="17" r="5"/><circle cx="32" cy="35" r="5"/><circle cx="14" cy="47" r="5"/><circle cx="50" cy="47" r="5"/></g></svg>
+        <span class="wordmark">MDS</span>
+        <span class="sep">/</span>
+        <span class="product">AI Email Reply Generator</span>
+      </a>
+      <nav class="nav">
+          <a class="navlink" href="setup.html" aria-current="page">Setup</a>
+          <a class="navlink" href="user-guide.html">User Guide</a>
+          <a class="navlink" href="faq.html">FAQ</a>
+          <a class="navlink" href="troubleshooting.html">Troubleshooting</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <nav aria-label="Documentation">
+        <p class="eyebrow">Documentation</p>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="setup.html" aria-current="page">Setup Guide</a></li>
+          <li><a href="user-guide.html">User Guide</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="troubleshooting.html">Troubleshooting</a></li>
+        </ul>
+        <p class="eyebrow">Policies</p>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="security-policy.html">Security Policy</a></li>
+        </ul>
+        </nav>
+      </aside>
+      <main class="content">
+<h1 id="setup-guide">Setup Guide</h1>
+<p>For Salesforce administrators. One-time setup, about 10 minutes.</p>
+<p>Until an AI provider API key is configured, users who open the
+component see <em>"AI provider is not configured."</em> Steps 1–7 clear
+that; steps 8–10 roll the app out to your team.</p>
+<hr />
+<h2 id="before-you-start">Before you start</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>You need</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Salesforce Enterprise, Unlimited or Developer edition</td>
+<td>Lightning Experience is required; Salesforce Classic is not
+supported</td>
+</tr>
+<tr>
+<td>System Administrator access</td>
+<td>Setup touches Named Credentials, Permission Sets and Custom
+Metadata</td>
+</tr>
+<tr>
+<td>An account with a supported AI provider</td>
+<td>OpenAI, Anthropic, Google or xAI</td>
+</tr>
+<tr>
+<td>An API key from that provider</td>
+<td>You pay the provider directly for usage — see the <a
+href="faq.html">FAQ</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>The app ships with the AI provider endpoints already configured. You
+never need to create or edit a Named Credential URL.</p>
+<hr />
+<h2 id="step-1--install-the-package">Step 1 — Install the package</h2>
+<p>Install from the AppExchange listing and choose <strong>Install for
+All Users</strong>, or install for admins only if you prefer to grant
+access gradually with permission sets.</p>
+<p>In a managed package, all components appear with the
+<code>aiemailreply</code> namespace prefix — for example
+<code>aiemailreply__AI_Email_Reply_Admin</code>. That is expected.</p>
+<h2 id="step-2--assign-yourself-the-admin-permission-set">Step 2 —
+Assign yourself the admin permission set</h2>
+<p>Do this before you open the app, or you will see an <strong>Admin
+Access Required</strong> screen.</p>
+<ol type="1">
+<li><strong>Setup → Users → Permission Sets</strong>.</li>
+<li>Click <strong>AI Email Reply Admin</strong>.</li>
+<li><strong>Manage Assignments → Add Assignment</strong>.</li>
+<li>Select your own user and click <strong>Assign</strong>.</li>
+</ol>
+<h2 id="step-3--open-the-app">Step 3 — Open the app</h2>
+<ol type="1">
+<li>Click the <strong>App Launcher</strong> (grid icon, top left).</li>
+<li>Search for <strong>AI Email Reply Generator</strong> and open
+it.</li>
+</ol>
+<p>You land on <strong>Admin Settings</strong>, which shows connection
+status, a Setup Guide section, your current provider settings, prompt
+templates and available tones.</p>
+<h2 id="step-4--add-your-api-key">Step 4 — Add your API key</h2>
+<p>Your key is stored in an External Credential, managed by Salesforce.
+It is never written into the app's code or metadata, and the app itself
+cannot read it back.</p>
+<ol type="1">
+<li><strong>Setup → Named Credentials → External Credentials</strong>
+tab.</li>
+<li>Open the External Credential for your provider from the table
+below.</li>
+<li>Under <strong>Principals</strong>, edit the listed principal.</li>
+<li>Under <strong>Authentication Parameters</strong>, replace the
+<code>CONFIGURE_IN_SETUP</code> placeholder with your real key, using
+the header and value format for your provider.</li>
+<li><strong>Save</strong>.</li>
+</ol>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>External Credential</th>
+<th>Principal</th>
+<th>Header</th>
+<th>Value to enter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenAI</td>
+<td>AI Email Reply OpenAI</td>
+<td><code>OpenAI_Principal</code></td>
+<td><code>Authorization</code></td>
+<td><code>Bearer sk-proj-…</code></td>
+</tr>
+<tr>
+<td>Anthropic</td>
+<td>AI Email Reply Anthropic</td>
+<td><code>Anthropic_Principal</code></td>
+<td><code>x-api-key</code></td>
+<td>your key, <strong>with no <code>Bearer</code> prefix</strong></td>
+</tr>
+<tr>
+<td>Google</td>
+<td>AI Email Reply Google</td>
+<td><code>Google_Principal</code></td>
+<td><code>Authorization</code></td>
+<td><code>Bearer …</code></td>
+</tr>
+<tr>
+<td>xAI</td>
+<td>AI Email Reply xAI</td>
+<td><code>XAI_Principal</code></td>
+<td><code>Authorization</code></td>
+<td><code>Bearer …</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Anthropic is the exception: its header is <code>x-api-key</code> and
+the value is the bare key. Adding <code>Bearer </code> in front of an
+Anthropic key causes a 401 at <strong>Test Connection</strong>.</p>
+<p>Configure only the provider you intend to use. The other three can
+stay on their placeholder values.</p>
+<h2 id="step-5--grant-access-to-the-external-credential">Step 5 — Grant
+access to the External Credential</h2>
+<p>Salesforce does not allow editing a managed package's permission sets
+in your org, so callout access is granted through a small permission set
+of your own.</p>
+<ol type="1">
+<li><strong>Setup → Permission Sets → New</strong>.</li>
+<li>Label it something like <strong>AI Email Reply API Access</strong>.
+<strong>Save</strong>.</li>
+<li>On the permission set, find <strong>External Credential Principal
+Access</strong> and click <strong>Edit</strong>.</li>
+<li>Move the principal for your provider — for example
+<code>aiemailreply__AI_Email_Reply_ExtCred_OpenAI - OpenAI_Principal</code>
+— from <strong>Available</strong> to <strong>Enabled</strong>.
+<strong>Save</strong>.</li>
+<li>Assign this permission set to yourself and to every user who will
+generate replies.</li>
+</ol>
+<p>This grants nothing but the ability to call the provider endpoint
+that already ships with the package.</p>
+<h2 id="step-6--choose-your-provider-and-model">Step 6 — Choose your
+provider and model</h2>
+<ol type="1">
+<li><strong>Setup → Custom Metadata Types → AI Reply Config → Manage
+Records</strong>.</li>
+<li>The package ships one record per provider. Open the one for your
+provider and set <strong>Is Active</strong> on it; clear <strong>Is
+Active</strong> on the others, so exactly one record is active.</li>
+<li>Check <strong>Provider</strong> and <strong>Model</strong>.</li>
+</ol>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Config record</th>
+<th>Provider value</th>
+<th>Default model</th>
+<th>Endpoint used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenAI</td>
+<td>Default OpenAI Config</td>
+<td><code>openai</code></td>
+<td><code>gpt-4o</code></td>
+<td><code>api.openai.com/v1/chat/completions</code></td>
+</tr>
+<tr>
+<td>Anthropic</td>
+<td>Default Anthropic Config</td>
+<td><code>anthropic</code></td>
+<td><code>claude-haiku-4-5</code></td>
+<td><code>api.anthropic.com/v1/messages</code></td>
+</tr>
+<tr>
+<td>Google</td>
+<td>Default Google Config</td>
+<td><code>google</code></td>
+<td><code>gemini-2.5-flash</code></td>
+<td><code>generativelanguage.googleapis.com/v1beta/openai/chat/completions</code></td>
+</tr>
+<tr>
+<td>xAI</td>
+<td>Default XAI Config</td>
+<td><code>xai</code></td>
+<td><code>grok-3-fast</code></td>
+<td><code>api.x.ai/v1/chat/completions</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Model</strong> must be a model identifier your provider
+account can actually call. A model name that is retired, misspelled, or
+outside your plan fails at <strong>Test Connection</strong>.</p>
+<h2 id="step-7--test-the-connection">Step 7 — Test the connection</h2>
+<p>Go back to <strong>Admin Settings</strong> and click <strong>Test
+Connection</strong>. It checks both that the key authenticates and that
+the model name is valid for your provider.</p>
+<p>If it fails, see <a
+href="troubleshooting.html">Troubleshooting</a>.</p>
+<h2 id="step-8--give-your-team-access">Step 8 — Give your team
+access</h2>
+<p>Assign both of these to each end user:</p>
+<ul>
+<li><strong>AI Email Reply User</strong> — use the component and
+generate replies.</li>
+<li>Your <strong>AI Email Reply API Access</strong> permission set from
+step 5 — without it, that user's replies fail even though yours
+work.</li>
+</ul>
+<p>Assign <strong>AI Email Reply Admin</strong> only to admins who
+should change configuration.</p>
+<h2 id="step-9--add-the-component-to-your-pages">Step 9 — Add the
+component to your pages</h2>
+<ol type="1">
+<li>Open any <strong>Case</strong> record.</li>
+<li>Click the <strong>gear icon (⚙) → Edit Page</strong>.</li>
+<li>In <strong>Components</strong>, search for <strong>AI Email Reply
+Generator</strong>.</li>
+<li>Drag it onto the layout — a right sidebar or its own tab works
+well.</li>
+<li><strong>Save</strong>, then <strong>Activation</strong> if the page
+is not yet active, and choose a scope: <strong>Org Default</strong>,
+<strong>App Default</strong>, or app/record type/profile for finer
+control.</li>
+<li><strong>Save</strong>, then <strong>Back</strong>.</li>
+</ol>
+<p>The component needs email activity for context, so Case record pages
+are the primary use case. It can also go on a Home or App page via
+<strong>Setup → Lightning App Builder → New</strong>.</p>
+<h2
+id="step-10--sandboxes-and-trial-orgs-only-email-deliverability">Step 10
+— Sandboxes and trial orgs only: email deliverability</h2>
+<p>In a sandbox or trial org, sending often fails silently because the
+org's email deliverability is restricted by default.</p>
+<ol type="1">
+<li><strong>Setup → Email → Deliverability</strong>.</li>
+<li>Set <strong>Access Level</strong> to <strong>All
+Email</strong>.</li>
+<li>Enable <strong>Use a substitute email address for unverified
+domains</strong>.</li>
+<li><strong>Save</strong> and retry.</li>
+</ol>
+<p>Production orgs normally need no change here.</p>
+<hr />
+<h2 id="optional-configuration">Optional configuration</h2>
+<h3 id="generation-settings">Generation settings</h3>
+<p>On the active <strong>AI Reply Config</strong> record:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>What it does</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default Tone</td>
+<td>Tone used when the user does not pick one</td>
+<td><code>Professional</code></td>
+</tr>
+<tr>
+<td>Max Tokens</td>
+<td>Caps the length of the generated reply</td>
+<td><code>1024</code></td>
+</tr>
+<tr>
+<td>Temperature</td>
+<td>Higher is more varied, lower is more predictable (0.0–1.0)</td>
+<td><code>0.7</code></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="what-goes-into-the-prompt">What goes into the prompt</h3>
+<p>Four checkboxes control how much of the email metadata is sent to the
+AI provider. <strong>All four are off by default</strong>, so out of the
+box only the message bodies and your tone choice leave the org.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Adds to the prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Include Sender in Prompt</td>
+<td>Sender name and address (From)</td>
+</tr>
+<tr>
+<td>Include Recipient in Prompt</td>
+<td>Recipient address (To)</td>
+</tr>
+<tr>
+<td>Include Subject in Prompt</td>
+<td>The subject line</td>
+</tr>
+<tr>
+<td>Include Timestamp in Prompt</td>
+<td>Message dates and times</td>
+</tr>
+</tbody>
+</table></div>
+<p>Turn one on only if it measurably improves replies for your use case.
+See the <a href="privacy-policy.html">Privacy Policy</a>.</p>
+<h3 id="prompt-templates">Prompt templates</h3>
+<p><strong>Setup → Custom Metadata Types → Prompt Template → Manage
+Records</strong>. Three ship with the package: <strong>General
+Reply</strong>, <strong>Support Reply</strong> and <strong>Sales
+Reply</strong>.</p>
+<p>Templates support two merge fields:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Merge field</th>
+<th>Replaced with</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{tone}</code></td>
+<td>The tone the user selected</td>
+</tr>
+<tr>
+<td><code>{emailThread}</code></td>
+<td>The formatted, sanitized email thread</td>
+</tr>
+</tbody>
+</table></div>
+<p>In the formatted thread, each message is labelled
+<code>[CUSTOMER]</code> (inbound) or <code>[AGENT]</code> (previously
+sent by your team). If you write your own template, keep a role block
+immediately after <code>{emailThread}</code> and before your
+instructions, or the AI may address the reply to the wrong person:</p>
+<pre><code>Role context:
+- [CUSTOMER] messages were sent by the person you are assisting.
+- [AGENT] messages were previously sent by the support agent.
+- Write your reply FROM the Agent, addressed TO the Customer.</code></pre>
+<p>All three built-in templates already include it.</p>
+<hr />
+<p>Next: the <a href="user-guide.html">User Guide</a> for your team, or
+the <a href="faq.html">FAQ</a>.</p>
+      </main>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>AI Email Reply Generator — a Salesforce AppExchange managed package by
+        <a href="/">Morgun Database Solutions</a>.</span>
+      <span>Support: <a href="mailto:omorgun@morgunsolutions.com">omorgun@morgunsolutions.com</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>

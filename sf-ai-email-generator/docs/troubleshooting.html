@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting — AI Email Reply Generator | MDS</title>
+  <meta name="description" content="Error messages in AI Email Reply Generator and how to resolve them." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="canonical" href="https://morgunsolutions.com/sf-ai-email-generator/docs/troubleshooting.html" />
+
+  <meta property="og:title" content="Troubleshooting — AI Email Reply Generator" />
+  <meta property="og:description" content="Error messages in AI Email Reply Generator and how to resolve them." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://morgunsolutions.com/sf-ai-email-generator/docs/troubleshooting.html" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="docs.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/" aria-label="MDS — Morgun Database Solutions, home">
+        <svg class="mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true"><path d="M14 47 V17 L32 35 L50 17 V47" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><g fill="currentColor" stroke="none"><circle cx="14" cy="17" r="5"/><circle cx="50" cy="17" r="5"/><circle cx="32" cy="35" r="5"/><circle cx="14" cy="47" r="5"/><circle cx="50" cy="47" r="5"/></g></svg>
+        <span class="wordmark">MDS</span>
+        <span class="sep">/</span>
+        <span class="product">AI Email Reply Generator</span>
+      </a>
+      <nav class="nav">
+          <a class="navlink" href="setup.html">Setup</a>
+          <a class="navlink" href="user-guide.html">User Guide</a>
+          <a class="navlink" href="faq.html">FAQ</a>
+          <a class="navlink" href="troubleshooting.html" aria-current="page">Troubleshooting</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <nav aria-label="Documentation">
+        <p class="eyebrow">Documentation</p>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="setup.html">Setup Guide</a></li>
+          <li><a href="user-guide.html">User Guide</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="troubleshooting.html" aria-current="page">Troubleshooting</a></li>
+        </ul>
+        <p class="eyebrow">Policies</p>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="security-policy.html">Security Policy</a></li>
+        </ul>
+        </nav>
+      </aside>
+      <main class="content">
+<h1 id="troubleshooting">Troubleshooting</h1>
+<p>Grouped by what you see on screen. Most items are administrator
+tasks; the <a href="setup.html">Setup Guide</a> has the step-by-step for
+each one.</p>
+<hr />
+<h2 id="quick-checklist">Quick checklist</h2>
+<p>Most problems in a fresh install are one of these five:</p>
+<ol type="1">
+<li>The API key still says <code>CONFIGURE_IN_SETUP</code> on the
+External Credential.</li>
+<li>An Anthropic key was entered with a <code>Bearer </code> prefix —
+Anthropic uses <code>x-api-key</code> with the bare key.</li>
+<li>The user has no <strong>External Credential Principal
+Access</strong> (step 5 of setup) — this is why it often works for the
+admin and fails for everyone else.</li>
+<li>No <strong>AI Reply Config</strong> record has <strong>Is
+Active</strong> set, or more than one does.</li>
+<li>The <strong>Model</strong> name is retired, misspelled, or not
+enabled on the provider account.</li>
+</ol>
+<hr />
+<h2 id="setup-and-access">Setup and access</h2>
+<h3 id="admin-access-required-when-opening-the-app">"Admin Access
+Required" when opening the app</h3>
+<p>The <strong>AI Email Reply Admin</strong> permission set is not
+assigned to you. <strong>Setup → Users → Permission Sets → AI Email
+Reply Admin → Manage Assignments → Add Assignment</strong>.</p>
+<h3 id="access-not-available-on-the-component">"Access Not Available" on
+the component</h3>
+<p>That user is missing the <strong>AI Email Reply User</strong>
+permission set. Assign it, and also assign the API access permission set
+from step 5 of setup.</p>
+<h3 id="it-works-for-me-as-admin-but-my-users-get-errors">It works for
+me as admin, but my users get errors</h3>
+<p>Almost always <strong>External Credential Principal Access</strong>.
+Create or reuse an unmanaged permission set, enable the principal for
+your provider on it (for example
+<code>aiemailreply__AI_Email_Reply_ExtCred_OpenAI - OpenAI_Principal</code>),
+and assign it to every user who generates replies. Managed package
+permission sets cannot grant this in your org — see <a
+href="setup.html">step 5</a>.</p>
+<h3 id="i-cant-find-the-component-in-lightning-app-builder">I can't find
+the component in Lightning App Builder</h3>
+<p>Search for <strong>AI Email Reply Generator</strong> in the
+<strong>Components</strong> panel, under Custom. If it is absent, the
+package is not installed in that org, or you are in Salesforce Classic —
+Lightning Experience is required.</p>
+<hr />
+<h2 id="configuration">Configuration</h2>
+<h3 id="ai-provider-is-not-configured">"AI provider is not
+configured"</h3>
+<p>Setup is incomplete. Check, in this order:</p>
+<ol type="1">
+<li>The API key on the External Credential for your provider is a real
+key, not <code>CONFIGURE_IN_SETUP</code>.</li>
+<li>Exactly one <strong>AI Reply Config</strong> record has <strong>Is
+Active</strong> checked.</li>
+<li>The <strong>Provider</strong> value on that record is one of
+<code>openai</code>, <code>anthropic</code>, <code>google</code>,
+<code>xai</code>.</li>
+</ol>
+<h3 id="no-active-ai-reply-configuration-found">"No active AI Reply
+configuration found"</h3>
+<p>No <strong>AI Reply Config</strong> record has <strong>Is
+Active</strong> checked. <strong>Setup → Custom Metadata Types → AI
+Reply Config → Manage Records</strong>, open the record for your
+provider and check <strong>Is Active</strong>. Leave it checked on
+exactly one record.</p>
+<h3 id="unsupported-ai-provider">"Unsupported AI provider"</h3>
+<p>The <strong>Provider</strong> field holds something the app does not
+recognise. It must be exactly <code>openai</code>,
+<code>anthropic</code>, <code>google</code> or <code>xai</code> — lower
+case, no spaces, no display name like "OpenAI (GPT-4o)".</p>
+<h3
+id="no-default-prompt-template-found--unable-to-load-prompt-templates">"No
+default prompt template found" / "Unable to load prompt templates"</h3>
+<p>The prompt template metadata is missing or none is marked as default.
+<strong>Setup → Custom Metadata Types → Prompt Template → Manage
+Records</strong> — you should see <strong>General Reply</strong>,
+<strong>Support Reply</strong> and <strong>Sales Reply</strong>. If the
+list is empty, reinstall or upgrade the package. If templates exist but
+none is default, mark one.</p>
+<h3 id="unable-to-load-available-tones">"Unable to load available
+tones"</h3>
+<p>The user cannot read the <strong>Tone</strong> field on <strong>AI
+Email Reply Draft</strong>. Confirm the <strong>AI Email Reply
+User</strong> permission set is assigned and was not overridden by a
+restrictive profile or permission set group.</p>
+<hr />
+<h2 id="connection-and-provider-errors">Connection and provider
+errors</h2>
+<h3 id="test-connection-fails">Test Connection fails</h3>
+<p>Work through these in order:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Key format</td>
+<td>OpenAI, Google and xAI: <code>Bearer &lt;key&gt;</code> in the
+<code>Authorization</code> parameter. Anthropic: the bare key in
+<code>x-api-key</code>, no <code>Bearer</code>.</td>
+</tr>
+<tr>
+<td>Key validity</td>
+<td>Paste the key into your provider's own console or test call. Revoked
+and expired keys are a common cause.</td>
+</tr>
+<tr>
+<td>Billing</td>
+<td>Most providers reject calls on accounts with no payment method or a
+spent credit balance.</td>
+</tr>
+<tr>
+<td>Model name</td>
+<td>It must exist and be enabled for your account. Retired model names
+fail here.</td>
+</tr>
+<tr>
+<td>Principal access</td>
+<td>The permission set from <a href="setup.html">step 5</a> must be
+assigned to you too.</td>
+</tr>
+<tr>
+<td>Provider match</td>
+<td>The active config's <strong>Provider</strong> must match the
+credential you actually filled in. Filling in the OpenAI key while
+<code>anthropic</code> is the active provider fails.</td>
+</tr>
+</tbody>
+</table></div>
+<h3
+id="could-not-reach-the-ai-provider-check-your-named-credential-configuration-and-network-connectivity">"Could
+not reach the AI provider. Check your Named Credential configuration and
+network connectivity."</h3>
+<p>The callout did not complete. Usually one of:</p>
+<ul>
+<li>The provider is having an outage — check their status page.</li>
+<li>The Named Credential's <strong>Callout Status</strong> was disabled,
+or its URL was edited. The shipped URLs are correct and should be left
+alone: <code>api.openai.com/v1/chat/completions</code>,
+<code>api.anthropic.com/v1/messages</code>,
+<code>generativelanguage.googleapis.com/v1beta/openai/chat/completions</code>,
+<code>api.x.ai/v1/chat/completions</code>.</li>
+<li>A long thread timed out. Try a shorter thread to confirm.</li>
+</ul>
+<h3 id="ai-provider-error--with-provider-text">"AI provider error: ..."
+(with provider text)</h3>
+<p>This is your provider's own message, passed through. Common ones:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Provider says</th>
+<th>Cause</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>401 / invalid API key</td>
+<td>Wrong, revoked or malformed key — check the <code>Bearer</code> rule
+above</td>
+</tr>
+<tr>
+<td>404 / model not found</td>
+<td>Model name wrong or not enabled on your account</td>
+</tr>
+<tr>
+<td>429 / rate limit</td>
+<td>Too many requests, or you are out of credit — check your provider
+usage page</td>
+</tr>
+<tr>
+<td>context length exceeded</td>
+<td>The email thread is too long for the model — reply to a shorter
+thread, or lower <strong>Max Tokens</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="replies-are-slow">Replies are slow</h3>
+<p>Generation time is the provider's, not Salesforce's. A faster model
+(<code>claude-haiku-4-5</code>, <code>gemini-2.5-flash</code>,
+<code>grok-3-fast</code>) is noticeably quicker than a large one.
+Lowering <strong>Max Tokens</strong> also helps.</p>
+<hr />
+<h2 id="email-thread-problems">Email thread problems</h2>
+<h3 id="no-inbound-emails-found-for-this-record">"No inbound emails
+found for this record"</h3>
+<p>The record has no inbound email to reply to. Either reply from a
+record that does, or click <strong>Enter Email ID manually</strong> and
+supply an Email Message Id.</p>
+<h3
+id="unable-to-load-email-thread--email-message-not-found-for-id">"Unable
+to load email thread" / "Email message not found for Id"</h3>
+<p>The Email Message Id is wrong, the record was deleted, or the user
+cannot read <strong>EmailMessage</strong>. Check the user's access to
+EmailMessage and to the parent record.</p>
+<h3 id="unable-to-load-emails-for-this-record">"Unable to load emails
+for this record"</h3>
+<p>Usually record-level access: the user cannot see the parent record or
+its email activity. Check sharing rules and the object's field-level
+security.</p>
+<hr />
+<h2 id="sending-problems">Sending problems</h2>
+<h3
+id="sending-appears-to-work-but-no-email-arrives-sandbox-trial-or-review-org">Sending
+appears to work but no email arrives (sandbox, trial or review org)</h3>
+<p>Email deliverability is restricted in non-production orgs by
+default.</p>
+<ol type="1">
+<li><strong>Setup → Email → Deliverability</strong>.</li>
+<li><strong>Access Level</strong> → <strong>All Email</strong>.</li>
+<li>Enable <strong>Use a substitute email address for unverified
+domains</strong>.</li>
+<li><strong>Save</strong> and retry.</li>
+</ol>
+<h3
+id="unable-to-send-reply--original-email-not-found-cannot-send-reply">"Unable
+to send reply" / "Original email not found. Cannot send reply."</h3>
+<p>The original email the reply was threading onto is gone or not
+visible to the user. Check that the EmailMessage still exists and the
+sender has access to it. In production, also confirm the org's email
+deliverability and the sending user's email settings.</p>
+<h3 id="unable-to-save-draft">"Unable to save draft"</h3>
+<p>The user cannot create <strong>AI Email Reply Draft</strong> records.
+Confirm the <strong>AI Email Reply User</strong> permission set is
+assigned and not overridden.</p>
+<hr />
+<h2 id="reply-quality">Reply quality</h2>
+<p>Quality problems are configuration, not bugs. In rough order of
+impact:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Try</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reply addressed to the wrong person</td>
+<td>Your custom prompt template is missing the role-context block — see
+<a href="setup.html#prompt-templates">Prompt templates</a></td>
+</tr>
+<tr>
+<td>Replies too long or too short</td>
+<td>Adjust <strong>Max Tokens</strong>, or use the
+<strong>Concise</strong> tone</td>
+</tr>
+<tr>
+<td>Replies too generic</td>
+<td>Use a more specific template, or turn on <strong>Include Subject in
+Prompt</strong></td>
+</tr>
+<tr>
+<td>Replies too unpredictable</td>
+<td>Lower <strong>Temperature</strong> (0.3–0.5)</td>
+</tr>
+<tr>
+<td>Invented facts, dates or amounts</td>
+<td>Expected behaviour of any LLM — the model sees only the email
+thread. Edit before sending; see the <a href="user-guide.html">User
+Guide</a></td>
+</tr>
+<tr>
+<td>Wrong language</td>
+<td>Add an explicit language instruction to your prompt template</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="before-contacting-support">Before contacting support</h2>
+<p>Send <a
+href="mailto:omorgun@morgunsolutions.com"><span>omorgun@morgunsolutions.com</span></a>:</p>
+<ul>
+<li>Salesforce edition, and whether it is production, sandbox or a trial
+org</li>
+<li>Package version</li>
+<li>Configured provider and model</li>
+<li>The exact error text, including anything after <em>"AI provider
+error:"</em></li>
+<li>Whether <strong>Test Connection</strong> succeeds</li>
+<li>Whether it fails for all users or only some</li>
+</ul>
+<p>Please do not send API keys, passwords or customer email content.</p>
+      </main>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>AI Email Reply Generator — a Salesforce AppExchange managed package by
+        <a href="/">Morgun Database Solutions</a>.</span>
+      <span>Support: <a href="mailto:omorgun@morgunsolutions.com">omorgun@morgunsolutions.com</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — AI Email Reply Generator | MDS</title>
+  <meta name="description" content="How MDS LLC handles data in connection with AI Email Reply Generator." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="canonical" href="https://morgunsolutions.com/sf-ai-email-generator/docs/privacy-policy.html" />
+
+  <meta property="og:title" content="Privacy Policy — AI Email Reply Generator" />
+  <meta property="og:description" content="How MDS LLC handles data in connection with AI Email Reply Generator." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://morgunsolutions.com/sf-ai-email-generator/docs/privacy-policy.html" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="docs.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/" aria-label="MDS — Morgun Database Solutions, home">
+        <svg class="mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true"><path d="M14 47 V17 L32 35 L50 17 V47" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><g fill="currentColor" stroke="none"><circle cx="14" cy="17" r="5"/><circle cx="50" cy="17" r="5"/><circle cx="32" cy="35" r="5"/><circle cx="14" cy="47" r="5"/><circle cx="50" cy="47" r="5"/></g></svg>
+        <span class="wordmark">MDS</span>
+        <span class="sep">/</span>
+        <span class="product">AI Email Reply Generator</span>
+      </a>
+      <nav class="nav">
+          <a class="navlink" href="setup.html">Setup</a>
+          <a class="navlink" href="user-guide.html">User Guide</a>
+          <a class="navlink" href="faq.html">FAQ</a>
+          <a class="navlink" href="troubleshooting.html">Troubleshooting</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <nav aria-label="Documentation">
+        <p class="eyebrow">Documentation</p>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="setup.html">Setup Guide</a></li>
+          <li><a href="user-guide.html">User Guide</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="troubleshooting.html">Troubleshooting</a></li>
+        </ul>
+        <p class="eyebrow">Policies</p>
+        <ul>
+          <li><a href="privacy-policy.html" aria-current="page">Privacy Policy</a></li>
+          <li><a href="security-policy.html">Security Policy</a></li>
+        </ul>
+        </nav>
+      </aside>
+      <main class="content">
+<h1 id="privacy-policy--ai-email-reply-generator">Privacy Policy — AI
+Email Reply Generator</h1>
+<blockquote>
+<p><strong>Effective Date</strong>: April 24, 2026
+<strong>Company</strong>: MDS LLC <strong>Contact</strong>: <a
+href="mailto:omorgun@morgunsolutions.com">omorgun@morgunsolutions.com</a></p>
+</blockquote>
+<hr />
+<h2 id="1-introduction">1. Introduction</h2>
+<p>This Privacy Policy describes how MDS LLC ("we", "us", "our") handles
+data in connection with the AI Email Reply Generator application ("the
+App") available on Salesforce AppExchange. This policy applies to all
+organizations ("customers") that install and use the App.</p>
+<hr />
+<h2 id="2-our-role">2. Our Role</h2>
+<p>The AI Email Reply Generator is a Salesforce managed package that
+runs entirely within the customer's Salesforce org. <strong>MDS LLC does
+not operate any servers, APIs, databases, or external infrastructure for
+this product.</strong> We provide software only — the App executes
+within your Salesforce environment under your control.</p>
+<p>MDS LLC is <strong>not</strong> a data processor or sub-processor. We
+do not receive, access, store, or process any customer data, email
+content, or user information through the operation of the App.</p>
+<hr />
+<h2 id="3-data-the-app-processes">3. Data the App Processes</h2>
+<p>When a user generates an AI-powered email reply, the App reads the
+following data from the customer's Salesforce org:</p>
+<ul>
+<li>Email subject and body text (from EmailMessage records)</li>
+<li>Sender and recipient email addresses (configurable — can be disabled
+by admin)</li>
+<li>Message timestamps (configurable — can be disabled by admin)</li>
+<li>User-selected tone and prompt template</li>
+</ul>
+<p>This data is processed in-memory within the customer's Salesforce org
+to assemble a prompt for the AI provider.</p>
+<hr />
+<h2 id="4-data-transmitted-to-third-parties">4. Data Transmitted to
+Third Parties</h2>
+<p>The App sends assembled prompt data (which includes email thread
+content) to the <strong>external AI provider configured by the
+customer's administrator</strong>. This is the core functionality of the
+App — generating AI-powered email reply drafts.</p>
+<p><strong>Key facts about this data transmission:</strong></p>
+<ul>
+<li>The customer chooses and configures their own AI provider (e.g.,
+OpenAI, Anthropic).</li>
+<li>The customer provides their own API key via Salesforce External
+Credentials.</li>
+<li>Data travels directly from the customer's Salesforce org to the
+customer's AI provider via Salesforce Named Credentials (HTTPS).</li>
+<li><strong>MDS LLC does not intercept, route, store, or view this
+data.</strong></li>
+<li>The AI provider's handling of transmitted data is governed by the
+customer's own agreement with that provider.</li>
+</ul>
+<p>Administrators can reduce the data sent to the AI provider by
+disabling sender addresses, recipient addresses, and message timestamps
+in the App's configuration.</p>
+<hr />
+<h2 id="5-data-stored-by-the-app">5. Data Stored by the App</h2>
+<p>The App stores AI-generated reply drafts in a custom Salesforce
+object (<code>AI_Email_Reply_Draft__c</code>) within the customer's org.
+This includes:</p>
+<ul>
+<li>The AI-generated reply text</li>
+<li>User-edited version of the reply</li>
+<li>Metadata (tone used, AI provider, model, token count, template
+name)</li>
+<li>Reference IDs to the source email and parent record</li>
+</ul>
+<p>This data is stored under a <strong>Private sharing model</strong> —
+users can only see their own drafts. Data retention is managed by the
+customer within their Salesforce org.</p>
+<hr />
+<h2 id="6-data-we-do-not-collect">6. Data We Do NOT Collect</h2>
+<p>MDS LLC does not collect, receive, or have access to:</p>
+<ul>
+<li>Customer email content or email metadata</li>
+<li>Salesforce user credentials, session tokens, or authentication
+data</li>
+<li>AI provider API keys or credentials</li>
+<li>Usage analytics, telemetry, or behavioral data</li>
+<li>Any data from the customer's Salesforce org</li>
+</ul>
+<p>The App does not "phone home" or communicate with any MDS LLC
+systems.</p>
+<hr />
+<h2 id="7-data-security">7. Data Security</h2>
+<ul>
+<li>All external callouts use Salesforce Named Credentials with HTTPS
+enforcement.</li>
+<li>API keys are stored in Salesforce External Credentials (encrypted,
+masked).</li>
+<li>Access to the App is controlled by Salesforce Permission Sets.</li>
+<li>All data operations enforce Salesforce CRUD and FLS (field-level
+security).</li>
+<li>Email content undergoes prompt injection sanitization before being
+sent to the AI provider.</li>
+<li>The App does not use <code>eval()</code>, <code>innerHTML</code>,
+dynamic SOQL, or other insecure patterns.</li>
+</ul>
+<hr />
+<h2 id="8-customer-responsibilities">8. Customer Responsibilities</h2>
+<p>Customers are responsible for:</p>
+<ul>
+<li>Evaluating whether the AI provider they configure meets their
+organization's data handling and compliance requirements.</li>
+<li>Reviewing and accepting their AI provider's terms of service and
+data processing agreements.</li>
+<li>Configuring the App's privacy settings (sender/recipient/timestamp
+toggles) in accordance with their data minimization policies.</li>
+<li>Managing data retention of AI-generated drafts within their
+Salesforce org.</li>
+<li>Ensuring their users understand that email content is sent to an
+external AI provider (the App provides an in-app disclosure banner for
+this purpose).</li>
+</ul>
+<hr />
+<h2 id="9-childrens-privacy">9. Children's Privacy</h2>
+<p>The App is a business tool designed for use within Salesforce orgs.
+It is not directed at children under 13, and we do not knowingly collect
+data from children.</p>
+<hr />
+<h2 id="10-changes-to-this-policy">10. Changes to This Policy</h2>
+<p>We may update this Privacy Policy from time to time. Changes will be
+communicated through the AppExchange listing and release notes.
+Continued use of the App after changes constitutes acceptance of the
+updated policy.</p>
+<hr />
+<h2 id="11-contact">11. Contact</h2>
+<p>For privacy-related questions or concerns:</p>
+<ul>
+<li><strong>Email</strong>: <a
+href="mailto:amorgun@morgunsolutions.com">amorgun@morgunsolutions.com</a></li>
+<li><strong>Company</strong>: MDS LLC</li>
+</ul>
+      </main>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>AI Email Reply Generator — a Salesforce AppExchange managed package by
+        <a href="/">Morgun Database Solutions</a>.</span>
+      <span>Support: <a href="mailto:omorgun@morgunsolutions.com">omorgun@morgunsolutions.com</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>
